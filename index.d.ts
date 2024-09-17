@@ -4,7 +4,7 @@ export function getContactById(contactId: string): Promise<Contact | null>;
 export function getCount(): Promise<number>;
 export function getPhotoForId(contactId: string): Promise<string>;
 export function addContact(contact: Partial<Contact>): Promise<Contact>;
-export function openContactForm(contact: Partial<Contact>): Promise<Contact | null>;
+export function openContactForm(contact: Partial<Contact>): Promise<Contact>;
 export function openExistingContact(contact: Contact): Promise<Contact>;
 export function viewExistingContact(contact: { recordID: string }): Promise<Contact | void>
 export function editExistingContact(contact: Contact): Promise<Contact>;
@@ -49,7 +49,7 @@ export interface InstantMessageAddress {
 export interface Birthday {
     day: number;
     month: number;
-    year?: number;
+    year: number;
 }
 
 export interface UrlAddress {
@@ -62,21 +62,21 @@ export interface Contact {
     backTitle: string;
     company: string|null;
     emailAddresses: EmailAddress[];
-    displayName: string|null;
+    displayName: string;
     familyName: string;
-    givenName: string|null;
+    givenName: string;
     middleName: string;
-    jobTitle: string|null;
+    jobTitle: string;
     phoneNumbers: PhoneNumber[];
     hasThumbnail: boolean;
     thumbnailPath: string;
     isStarred: boolean;
     postalAddresses: PostalAddress[];
-    prefix: string|null;
-    suffix: string|null;
-    department: string|null;
-    birthday?: Birthday;
+    prefix: string;
+    suffix: string;
+    department: string;
+    birthday: Birthday;
     imAddresses: InstantMessageAddress[];
     urlAddresses: UrlAddress[];
-    note: string|null;
+    note: string;
 }
